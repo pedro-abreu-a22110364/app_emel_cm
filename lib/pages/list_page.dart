@@ -12,7 +12,6 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-
   List<Parque> parques = [
     Parque(idParque: 1, nome: "Campo Grande", lotacaoReal: 100, lotacaoMax: 200, tipoParque: TipoParque.SUPERFICIE),
     Parque(idParque: 2, nome: "Entrecampos", lotacaoReal: 2, lotacaoMax: 50, tipoParque: TipoParque.ESTRUTURA),
@@ -25,6 +24,24 @@ class _ListPageState extends State<ListPage> {
       body: Column(
         children: parques.map((parque) => ParqueCard(parque: parque)).toList(),
       )
+    );
+  }
+}
+
+class ParquesRepositorio extends State<ListPage>{
+  List<Parque> parques = [
+      Parque(idParque: 1, nome: "Campo Grande", lotacaoReal: 100, lotacaoMax: 200, tipoParque: TipoParque.SUPERFICIE),
+      Parque(idParque: 2, nome: "Entrecampos", lotacaoReal: 2, lotacaoMax: 50, tipoParque: TipoParque.ESTRUTURA),
+      Parque(idParque: 3, nome: "Campo Pequeno", lotacaoReal: 75, lotacaoMax: 75, tipoParque: TipoParque.ESTRUTURA)
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Row(
+          children: parques.map((parque) => ParqueCard(parque: parque))
+              .toList(),
+        )
     );
   }
 }

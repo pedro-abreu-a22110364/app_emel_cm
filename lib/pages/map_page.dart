@@ -8,14 +8,8 @@ class MapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(pages[0].icon, size: 100),
-            Text(pages[0].title, style: TextStyle(fontSize: 30)),
-          ],
+        child: Image.network('https://images.app.goo.gl/N652tea6ZKCKNZX79'),
         ),
-      ),
-    );
+      );
   }
 }
