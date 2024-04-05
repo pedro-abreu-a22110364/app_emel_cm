@@ -31,7 +31,6 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text('Meteorologia', style: TextStyle(fontSize: 20.0)),
-                //isto tem de ser um stateful widget do later
                 Icon(Icons.sunny),
               ],
             ),

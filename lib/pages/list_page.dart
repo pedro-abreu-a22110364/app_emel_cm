@@ -34,7 +34,6 @@ class ParquesRepositorio extends State<ListPage>{
       Parque(idParque: 2, nome: "Entrecampos", lotacaoReal: 2, lotacaoMax: 50, tipoParque: TipoParque.ESTRUTURA),
       Parque(idParque: 3, nome: "Campo Pequeno", lotacaoReal: 75, lotacaoMax: 75, tipoParque: TipoParque.ESTRUTURA)
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
