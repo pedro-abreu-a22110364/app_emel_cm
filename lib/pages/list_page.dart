@@ -1,6 +1,7 @@
 import 'package:app_emel_cm/model/tipo_parque.dart';
 import 'package:flutter/material.dart';
 
+import 'detail_page.dart';
 import 'templates/parque_card.dart';
 import '../model/parque.dart';
 
@@ -21,9 +22,19 @@ class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: parques.map((parque) => ParqueCard(parque: parque)).toList(),
-      )
+      body: ListView(
+      children: parques.map((parque) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => DetailPage(parque: parque),
+              ),
+            );
+          },
+          child: ParqueCard(parque: parque),
+        );
+      }).toList(),
+    ),
     );
   }
 }
