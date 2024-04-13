@@ -8,16 +8,21 @@ class Parque {
   int lotacaoReal;
   int lotacaoMax;
   DateTime? data;
+  int distancia;
+  double preco;
   TipoParque tipoParque;
   EstadoParque? estadoParque;
   List<Incidente>? incidentes;
 
   Parque(
-      {required this.idParque,
-      required this.nome,
-      required this.lotacaoReal,
-      required this.lotacaoMax,
-      required this.tipoParque
+      {
+        required this.idParque,
+        required this.nome,
+        required this.lotacaoReal,
+        required this.lotacaoMax,
+        required this.tipoParque,
+        required this.distancia,
+        required this.preco
       });
 
   EstadoParque calculaEstadoParque() {

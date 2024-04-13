@@ -14,9 +14,9 @@ class ListPage extends StatefulWidget {
 
 class _ListPageState extends State<ListPage> {
   List<Parque> parques = [
-    Parque(idParque: 1, nome: "Campo Grande", lotacaoReal: 100, lotacaoMax: 200, tipoParque: TipoParque.SUPERFICIE),
-    Parque(idParque: 2, nome: "Entrecampos", lotacaoReal: 2, lotacaoMax: 50, tipoParque: TipoParque.ESTRUTURA),
-    Parque(idParque: 3, nome: "Campo Pequeno", lotacaoReal: 75, lotacaoMax: 75, tipoParque: TipoParque.ESTRUTURA)
+    Parque(idParque: 1, nome: "Campo Grande", lotacaoReal: 100, lotacaoMax: 200, tipoParque: TipoParque.SUPERFICIE, distancia: 600, preco: 1.10),
+    Parque(idParque: 2, nome: "Entrecampos", lotacaoReal: 2, lotacaoMax: 50, tipoParque: TipoParque.ESTRUTURA, distancia: 1000, preco: 1.20),
+    Parque(idParque: 3, nome: "Campo Pequeno", lotacaoReal: 75, lotacaoMax: 75, tipoParque: TipoParque.ESTRUTURA, distancia: 300, preco: 1.15)
   ];
 
   @override
@@ -41,9 +41,9 @@ class _ListPageState extends State<ListPage> {
 
 class ParquesRepositorio extends State<ListPage>{
   List<Parque> parques = [
-      Parque(idParque: 1, nome: "Campo Grande", lotacaoReal: 100, lotacaoMax: 200, tipoParque: TipoParque.SUPERFICIE),
-      Parque(idParque: 2, nome: "Entrecampos", lotacaoReal: 2, lotacaoMax: 50, tipoParque: TipoParque.ESTRUTURA),
-      Parque(idParque: 3, nome: "Campo Pequeno", lotacaoReal: 75, lotacaoMax: 75, tipoParque: TipoParque.ESTRUTURA)
+      Parque(idParque: 1, nome: "Campo Grande", lotacaoReal: 100, lotacaoMax: 200, tipoParque: TipoParque.SUPERFICIE, distancia: 600, preco: 1.10, ),
+      Parque(idParque: 2, nome: "Entrecampos", lotacaoReal: 2, lotacaoMax: 50, tipoParque: TipoParque.ESTRUTURA, distancia: 1000, preco: 1.20, ),
+      Parque(idParque: 3, nome: "Campo Pequeno", lotacaoReal: 75, lotacaoMax: 75, tipoParque: TipoParque.ESTRUTURA, distancia: 300, preco: 1.15)
   ];
   @override
   Widget build(BuildContext context) {

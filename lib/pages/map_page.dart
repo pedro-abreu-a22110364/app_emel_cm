@@ -7,13 +7,12 @@ class MapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(pages[0].icon, size: 100),
-            Text(pages[0].title, style: TextStyle(fontSize: 30)),
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/emelmap.png'),
+            fit: BoxFit.cover, // Apanhamos o ecran inteirinho
+          ),
         ),
       ),
     );

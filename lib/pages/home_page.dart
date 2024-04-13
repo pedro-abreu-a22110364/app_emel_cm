@@ -27,44 +27,66 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             SizedBox(height: 20.0,),
             buildDiaAtualWidget(context),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('Meteorologia', style: TextStyle(fontSize: 20.0)),
-                Icon(Icons.sunny),
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('Recomendamos', style: TextStyle(fontSize: 20.0)),
-                Text('Parques de superfície', style: TextStyle(fontSize: 20.0)),
-              ],
-            ),
-            Expanded(
-              child:
-                buildList()
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  child: Text('Registar Incidente', style: TextStyle(fontSize: 24.0)),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder( // Shape of the button
-                      borderRadius: BorderRadius.circular(10.0), // Square edges
+            Container (
+              padding: EdgeInsets.all(10),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Meteorologia', style: TextStyle(fontSize: 20.0)),
+                  Expanded (
+                    child: Divider(
+                      thickness: 3.0,
+                      indent: 10.0,
+                      endIndent: 10.0,
                     ),
-                    padding: EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 20.0),
                   ),
-                  onPressed: () {
-                    print('click me');
-                  },
-                ),
-              ],
+                  Text('Sol', style: TextStyle(fontSize: 20.0)),
+                  Icon(Icons.sunny),
+                ],
+              ),
             ),
-            SizedBox(height: 20.0,),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('Recomendamos', style: TextStyle(fontSize: 20.0)),
+                  Expanded (
+                    child: Divider(
+                      thickness: 3.0,
+                      indent: 10.0,
+                      endIndent: 10.0,
+                    ),
+                  ),
+                  Text('Parques de superfície', style: TextStyle(fontSize: 20.0)),
+                ],
+              ),
+            ),
+               Expanded(
+                   child: buildList()
+               ),
+              SizedBox(height: 5,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ElevatedButton(
+                    child: Text('REGISTRAR INCIDENTE', style: TextStyle(fontSize: 20.0)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder( // Shape of the button
+                        borderRadius: BorderRadius.circular(10.0), // Square edges
+                      ),
+                      padding: EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 20.0),
+                    ),
+                    onPressed: () {
+                      print('click me');
+                      //Apagar mais tarde
+                    },
+                  ),
+                ],
+              ),
+
           ],
         ),
       ),
