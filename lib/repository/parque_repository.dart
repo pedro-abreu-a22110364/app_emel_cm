@@ -22,6 +22,14 @@ class ParqueRepository {
     return filteredList.take(3).toList();
   }
 
+  List<String>? getNomeParques() {
+    List<Parque> parques = getParques();
+
+    List<String> nomesParqueList = parques.map((parque) => parque.nome!).toList();
+
+    return nomesParqueList;
+  }
+
   Parque? getParque (int id) {
     List<Parque> parques = getParques();
 

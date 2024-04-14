@@ -1,3 +1,4 @@
+import 'package:app_emel_cm/pages/incidente_page.dart';
 import 'package:flutter/material.dart';
 import 'package:app_emel_cm/models/parque.dart';
 
@@ -15,52 +16,29 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.parque.nome),
+        title: Text(widget.parque.nome!),
+        centerTitle: true,
       ),
       body: Center(
         child: Column (
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 20.0,),
-              Text('Distância'),
+              const SizedBox(height: 20.0,),
+              const Text('Distância'),
               Text('${widget.parque.distancia}'),
-              Expanded (
-                  child: Divider(
-                    thickness: 3.0,
-                    indent: 10.0,
-                    endIndent: 10.0,
-                  ),
-              ),
-              Text('Tipo de parque'),
-              Text('${widget.parque.tipoParque.name}'),
-              Expanded (
-                child: Divider(
-                  thickness: 3.0,
-                  indent: 10.0,
-                  endIndent: 10.0,
-                ),
-              ),
-              Text('Lotação'),
-              Text('${widget.parque.estadoParque}'),
-              Expanded (
-                child: Divider(
-                  thickness: 3.0,
-                  indent: 10.0,
-                  endIndent: 10.0,
-                ),
-              ),
-              Text('Horário de pagamento'),
-              Text('2º a 6º - 7h00 às 24h00'),
-              Expanded (
-                child: Divider(
-                  thickness: 3.0,
-                  indent: 10.0,
-                  endIndent: 10.0,
-                ),
-              ),
-              Text('Preço'),
+              buildDivider(),
+              const Text('Tipo de parque'),
+              Text(widget.parque.tipoParque!.name),
+              buildDivider(),
+              const Text('Lotação'),
+              Text(widget.parque.calculaEstadoParque().name),
+              buildDivider(),
+              const Text('Horário de pagamento'),
+              const Text('2º a 6º - 7h00 às 24h00'),
+              buildDivider(),
+              const Text('Preço'),
               Text('${widget.parque.preco}'),
-              SizedBox(height: 5,),
+              const SizedBox(height: 5,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -74,8 +52,10 @@ class _DetailPageState extends State<DetailPage> {
                       padding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 20.0),
                     ),
                     onPressed: () {
-                      print('click me');
-                      //Apagar mais tarde
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => IncidentePage(parque: widget.parque)));
                     },
                     child: const Text('REGISTRAR INCIDENTE', style: TextStyle(fontSize: 20.0)),
                   ),
@@ -87,5 +67,15 @@ class _DetailPageState extends State<DetailPage> {
 
       ),
     );
+  }
+
+  Expanded buildDivider() {
+    return const Expanded (
+                child: Divider(
+                  thickness: 3.0,
+                  indent: 10.0,
+                  endIndent: 10.0,
+                ),
+            );
   }
 }

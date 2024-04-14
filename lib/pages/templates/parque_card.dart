@@ -24,7 +24,7 @@ class ParqueCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Text(
-                  parque.nome,
+                  parque.nome!,
                   style: TextStyle(
                     fontSize: 18.0,
                     color: Colors.grey[600],

@@ -1,4 +1,5 @@
 import 'package:app_emel_cm/models/tipo_parque.dart';
+import 'package:app_emel_cm/pages/incidente_page.dart';
 import 'package:app_emel_cm/pages/templates/parque_card.dart';
 import 'package:app_emel_cm/repository/parque_repository.dart';
 import 'package:flutter/material.dart';
@@ -76,11 +77,13 @@ class _HomePageState extends State<HomePage> {
                       shape: RoundedRectangleBorder( // Shape of the button
                         borderRadius: BorderRadius.circular(10.0), // Square edges
                       ),
-                      padding: EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 20.0),
+                      padding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 20.0),
                     ),
                     onPressed: () {
-                      print('click me');
-                      //Apagar mais tarde
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => IncidentePage(parque: Parque.empty(),)));
                     },
                   ),
                 ],

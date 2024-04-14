@@ -3,16 +3,19 @@ import 'package:app_emel_cm/models/tipo_parque.dart';
 import 'package:app_emel_cm/models/incidente.dart';
 
 class Parque {
-  int idParque;
-  String nome;
-  int lotacaoReal;
-  int lotacaoMax;
+  int? idParque;
+  String? nome;
+  int? lotacaoReal;
+  int? lotacaoMax;
   DateTime? data;
-  int distancia;
-  double preco;
-  TipoParque tipoParque;
+  int? distancia;
+  double? preco;
+  TipoParque? tipoParque;
   EstadoParque? estadoParque;
   List<Incidente>? incidentes;
+
+
+  Parque.empty();
 
   Parque(
       {
@@ -26,9 +29,9 @@ class Parque {
       });
 
   EstadoParque calculaEstadoParque() {
-    if (lotacaoReal - lotacaoMax == 0) {
+    if (lotacaoReal! - lotacaoMax! == 0) {
       return EstadoParque.LOTADO;
-    } else if ((lotacaoReal * 100) / lotacaoMax >= 50) {
+    } else if ((lotacaoReal! * 100) / lotacaoMax! >= 50) {
       return EstadoParque.PARCIALMENTE_LOTADO;
     } else {
       return EstadoParque.LIVRE;
