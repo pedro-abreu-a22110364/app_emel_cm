@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:app_emel_cm/model/parque.dart';
+import 'package:app_emel_cm/models/parque.dart';
 
 class DetailPage extends StatefulWidget {
   final Parque parque;
@@ -65,19 +65,19 @@ class _DetailPageState extends State<DetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   ElevatedButton(
-                    child: Text('REGISTRAR INCIDENTE', style: TextStyle(fontSize: 20.0)),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder( // Shape of the button
                         borderRadius: BorderRadius.circular(10.0), // Square edges
                       ),
-                      padding: EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 20.0),
+                      padding: const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 20.0),
                     ),
                     onPressed: () {
                       print('click me');
                       //Apagar mais tarde
                     },
+                    child: const Text('REGISTRAR INCIDENTE', style: TextStyle(fontSize: 20.0)),
                   ),
                 ],
               ),

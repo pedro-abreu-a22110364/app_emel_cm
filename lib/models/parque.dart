@@ -1,6 +1,6 @@
-import 'package:app_emel_cm/model/estado_parque.dart';
-import 'package:app_emel_cm/model/tipo_parque.dart';
-import 'package:app_emel_cm/model/incidente.dart';
+import 'package:app_emel_cm/models/estado_parque.dart';
+import 'package:app_emel_cm/models/tipo_parque.dart';
+import 'package:app_emel_cm/models/incidente.dart';
 
 class Parque {
   int idParque;

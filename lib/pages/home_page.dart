@@ -1,12 +1,9 @@
+import 'package:app_emel_cm/models/tipo_parque.dart';
 import 'package:app_emel_cm/pages/templates/parque_card.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:app_emel_cm/repository/parque_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
 
-import '../model/parque.dart';
-import '../model/tipo_parque.dart';
-import 'list_page.dart';
+import '../models/parque.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +13,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final parques = ParquesRepositorio();
+  List<Parque> parques = [];
+
+  final parqueRepository = ParqueRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +24,10 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 20.0,),
-            buildDiaAtualWidget(context),
+            const SizedBox(height: 20.0,),
+            //buildDiaAtualWidget(context),
             Container (
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -46,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -63,7 +62,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
                Expanded(
-                   child: buildList()
+                   child: buildList(TipoParque.SUPERFICIE),
                ),
               SizedBox(height: 5,),
               Row(
@@ -92,7 +91,8 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-  Widget buildDiaAtualWidget(BuildContext context) {
+
+  /*Widget buildDiaAtualWidget(BuildContext context) {
     //weekday & month structure
     DateFormat dateFormat = DateFormat(
         "EEEE", Localizations.localeOf(context).toString());
@@ -105,13 +105,15 @@ class _HomePageState extends State<HomePage> {
     DateTime now = DateTime.now();
     return Text('$weekday, ${now.day} de $month de ${now.year}',
         style: TextStyle(fontSize: 20.0));
-  }
+  }*/
 
-  Widget buildList() {
+  Widget buildList(TipoParque tipoParque) {
+    parques = parqueRepository.getParquesEstrutura(tipoParque)!;
+
     return ListView.builder(
-      padding: EdgeInsets.all(8), // padding à volta do blocos
-      itemBuilder: (_, index) => ParqueCard(parque: parques.parques[index]),
-      itemCount: parques.parques.length,
+      padding: const EdgeInsets.all(8), // padding à volta do blocos
+      itemBuilder: (_, index) => ParqueCard(parque: parques[index]),
+      itemCount: parques.length,
     );
   }
 }
