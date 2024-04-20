@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 import 'package:app_emel_cm/models/tipo_parque.dart';
 import 'package:app_emel_cm/pages/incidente_page.dart';
 import 'package:app_emel_cm/pages/templates/parque_card.dart';
 import 'package:app_emel_cm/repository/parque_repository.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 import '../models/parque.dart';
+import 'package:flutter/cupertino.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,8 +29,8 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(height: 20.0,),
-            //buildDiaAtualWidget(context),
+            const SizedBox(height: 40.0,),
+            buildDiaAtualWidget(context),
             Container (
               padding: const EdgeInsets.all(10),
               child: const Row(
@@ -62,10 +66,12 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-               Expanded(
-                   child: buildList(TipoParque.SUPERFICIE),
-               ),
-              SizedBox(height: 5,),
+            SizedBox(height: 50.0,),
+            Expanded(
+              child:
+              buildList([TipoParque.SUPERFICIE, TipoParque.SUPERFICIE, TipoParque.SUPERFICIE]),
+            ),
+            SizedBox(height: 5,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -88,14 +94,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-
+            SizedBox(height: 10.0,),
           ],
         ),
       ),
     );
   }
 
-  /*Widget buildDiaAtualWidget(BuildContext context) {
+  Widget buildDiaAtualWidget(BuildContext context) {
     //weekday & month structure
     DateFormat dateFormat = DateFormat(
         "EEEE", Localizations.localeOf(context).toString());
@@ -108,22 +114,29 @@ class _HomePageState extends State<HomePage> {
     DateTime now = DateTime.now();
     return Text('$weekday, ${now.day} de $month de ${now.year}',
         style: TextStyle(fontSize: 20.0));
-  }*/
+  }
 
-  Widget buildList(TipoParque tipoParque) {
-    parques = parqueRepository.getParquesEstrutura(tipoParque)!;
+  Widget buildList(List<TipoParque> tiposParque) {
+    List<Parque> parques = [];
+    // Aggregate parks from each type into a single list
+    for (var tipo in tiposParque) {
+      parques.addAll(parqueRepository.getParquesEstrutura(tipo)!);
+    }
 
     return ListView.builder(
-      padding: const EdgeInsets.all(8), // padding à volta do blocos
+      padding: const EdgeInsets.all(8),
       itemBuilder: (_, index) => ParqueCard(parque: parques[index]),
       itemCount: parques.length,
     );
   }
+
 }
 
 
-/*class Meteorologia {
-  String weatherCondition = 'sunny'; // Vamos supor que isto venha de uma API
+class Meteorologia {
+  String weatherCondition = 'sunny';
+
+  get http => null; // Vamos supor que isto venha de uma API
 
   Future<bool> fetchWeatherForecast() async {
     final link = await http.get(Uri.parse('https://www.ipma.pt/pt/otempo'
@@ -137,7 +150,7 @@ class _HomePageState extends State<HomePage> {
       throw Exception('Failed to load weather data');
     }
   }
-}*/
+}
 
 
 

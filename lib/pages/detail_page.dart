@@ -43,6 +43,7 @@ class _DetailPageState extends State<DetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   ElevatedButton(
+                    child: Text('REGISTRAR INCIDENTE', style: TextStyle(fontSize: 20.0)),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                       foregroundColor: Colors.white,
@@ -55,12 +56,12 @@ class _DetailPageState extends State<DetailPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => IncidentePage(parque: widget.parque)));
+                              builder: (context) => IncidentePage(parque: Parque.empty(),)));
                     },
-                    child: const Text('REGISTRAR INCIDENTE', style: TextStyle(fontSize: 20.0)),
                   ),
                 ],
               ),
+              SizedBox(height: 10.0,),
           ],
 
         ),

@@ -1,16 +1,11 @@
-# app_emel_cm
+# App_emel_cm
 
-A new Flutter project.
+Projeto flutter realizado por:
+Joana Okica - a22102756
+Pedro Abreu - a22110364
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Autoavaliação 
+Auto avaliamos o projeto com 10 valores

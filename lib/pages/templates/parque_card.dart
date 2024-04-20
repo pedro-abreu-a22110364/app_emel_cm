@@ -38,6 +38,8 @@ class ParqueCard extends StatelessWidget {
                     color: Colors.grey[800],
                   ),
                 ),
+                SizedBox(height: 6.0),
+
               ],
             ),
           )),
